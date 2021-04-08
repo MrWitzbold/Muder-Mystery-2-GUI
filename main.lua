@@ -194,7 +194,7 @@ close.TextSize = 20.000
 
 -- Scripts:
 
-local function PVXG_fake_script() -- teleport_button.LocalScript 
+local function KALAAH_fake_script() -- teleport_button.LocalScript 
 	local script = Instance.new('LocalScript', teleport_button)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -235,6 +235,9 @@ local function PVXG_fake_script() -- teleport_button.LocalScript
 		if workspace:FindFirstChild("ResearchFacility") ~= nil then
 			map = workspace:FindFirstChild("ResearchFacility")
 		end
+		if workspace:FindFirstChild("nSOffice") ~= nil then
+			map = workspace:FindFirstChild("nSOffice")
+		end
 		if workspace:FindFirstChild("Hotel") ~= nil then
 			map = workspace:FindFirstChild("Hotel")
 		end
@@ -250,16 +253,16 @@ local function PVXG_fake_script() -- teleport_button.LocalScript
 		game.Players.LocalPlayer.Character:MoveTo(player.Character.Head.Position)
 	end)
 end
-coroutine.wrap(PVXG_fake_script)()
-local function AFOTNN_fake_script() -- speed_button.LocalScript 
+coroutine.wrap(KALAAH_fake_script)()
+local function ZQVPGMK_fake_script() -- speed_button.LocalScript 
 	local script = Instance.new('LocalScript', speed_button)
 
 	script.Parent.MouseButton1Click:connect(function()
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(script.Parent.Parent:FindFirstChild("speed_textbox").Text)
 	end)
 end
-coroutine.wrap(AFOTNN_fake_script)()
-local function CBUYS_fake_script() -- get_coins.LocalScript 
+coroutine.wrap(ZQVPGMK_fake_script)()
+local function FPIYN_fake_script() -- get_coins.LocalScript 
 	local script = Instance.new('LocalScript', get_coins)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -304,6 +307,9 @@ local function CBUYS_fake_script() -- get_coins.LocalScript
 		if workspace:FindFirstChild("Hotel") ~= nil then
 			map = workspace:FindFirstChild("Hotel")
 		end
+		if workspace:FindFirstChild("nSOffice") ~= nil then
+			map = workspace:FindFirstChild("nSOffice")
+		end
 		print("Found map: ", map.Name)
 		if map ~= nil then
 			if map:FindFirstChild("GlitchProof") ~= nil then
@@ -327,20 +333,20 @@ local function CBUYS_fake_script() -- get_coins.LocalScript
 		end
 	end)
 end
-coroutine.wrap(CBUYS_fake_script)()
-local function JNRKL_fake_script() -- open.LocalScript 
+coroutine.wrap(FPIYN_fake_script)()
+local function HQKAL_fake_script() -- open.LocalScript 
 	local script = Instance.new('LocalScript', open)
 
 	script.Parent.MouseButton1Click:connect(function()
 		script.Parent.Parent.Parent:FindFirstChild("main").Visible = true
 	end)
 end
-coroutine.wrap(JNRKL_fake_script)()
-local function THRYWL_fake_script() -- close.LocalScript 
+coroutine.wrap(HQKAL_fake_script)()
+local function XFIX_fake_script() -- close.LocalScript 
 	local script = Instance.new('LocalScript', close)
 
 	script.Parent.MouseButton1Click:connect(function()
 		script.Parent.Parent.Parent:FindFirstChild("main").Visible = false
 	end)
 end
-coroutine.wrap(THRYWL_fake_script)()
+coroutine.wrap(XFIX_fake_script)()
