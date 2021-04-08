@@ -1,7 +1,29 @@
--- Gui to Lua
--- Version: 3.2
+blur = Instance.new("BlurEffect")
+blur.Parent = game.Lighting
+blur.Size = 4
 
--- Instances:
+color_correction = Instance.new("ColorCorrectionEffect")
+color_correction.Parent = game.Lighting
+color_correction.TintColor = Color3.fromRGB(192, 201, 255)
+
+function iterate_in(model)
+	for _,v in pairs(model:GetChildren()) do
+		if v:IsA("Sound") then
+			v:Destroy()
+		end
+		if v:IsA("Model") or v:IsA("Folder") then
+			iterate_in(v)
+		end
+	end
+end
+
+iterate_in(workspace)
+
+Sound = Instance.new("Sound")
+Sound.Parent = workspace
+Sound.SoundId = "rbxassetid://2080184344"
+Sound.Playing = true
+Sound.Looped = true
 
 local ScreenGui = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
