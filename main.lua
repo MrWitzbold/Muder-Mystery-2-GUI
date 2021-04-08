@@ -194,25 +194,72 @@ close.TextSize = 20.000
 
 -- Scripts:
 
-local function ASULI_fake_script() -- teleport_button.LocalScript 
+local function PVXG_fake_script() -- teleport_button.LocalScript 
 	local script = Instance.new('LocalScript', teleport_button)
 
 	script.Parent.MouseButton1Click:connect(function()
+		map = nil
+		if workspace:FindFirstChild("Mansion2") ~= nil then
+			map = workspace:FindFirstChild("Mansion2")
+		end
+		if workspace:FindFirstChild("Office2") ~= nil then
+			map = workspace:FindFirstChild("Office2")
+		end
+		if workspace:FindFirstChild("Factory") ~= nil then
+			map = workspace:FindFirstChild("Factory")
+		end
+		if workspace:FindFirstChild("MilBase") ~= nil then
+			map = workspace:FindFirstChild("MilBase")
+		end
+		if workspace:FindFirstChild("PoliceStation") ~= nil then
+			map = workspace:FindFirstChild("PoliceStation")
+		end
+		if workspace:FindFirstChild("Hospital3") ~= nil then
+			map = workspace:FindFirstChild("Hospital3")
+		end
+		if workspace:FindFirstChild("Bank2") ~= nil then
+			map = workspace:FindFirstChild("Bank2")
+		end
+		if workspace:FindFirstChild("Hotel2") ~= nil then
+			map = workspace:FindFirstChild("Hotel2")
+		end
+		if workspace:FindFirstChild("BioLab") ~= nil then
+			map = workspace:FindFirstChild("BioLab")
+		end
+		if workspace:FindFirstChild("House2") ~= nil then
+			map = workspace:FindFirstChild("House2")
+		end
+		if workspace:FindFirstChild("nStudio") ~= nil then
+			map = workspace:FindFirstChild("nStudio")
+		end
+		if workspace:FindFirstChild("ResearchFacility") ~= nil then
+			map = workspace:FindFirstChild("ResearchFacility")
+		end
+		if workspace:FindFirstChild("Hotel") ~= nil then
+			map = workspace:FindFirstChild("Hotel")
+		end
+		print("Found map: ", map.Name)
+		if map ~= nil then
+			if map:FindFirstChild("GlitchProof") ~= nil then
+				print("Found map: ", map.Name)
+				map:FindFirstChild("GlitchProof"):Destroy()
+			end
+		end
 		local player_name = script.Parent.Parent.player_textbox.Text
 		local player = game.Players:FindFirstChild(player_name)
 		game.Players.LocalPlayer.Character:MoveTo(player.Character.Head.Position)
 	end)
 end
-coroutine.wrap(ASULI_fake_script)()
-local function CKZUG_fake_script() -- speed_button.LocalScript 
+coroutine.wrap(PVXG_fake_script)()
+local function AFOTNN_fake_script() -- speed_button.LocalScript 
 	local script = Instance.new('LocalScript', speed_button)
 
 	script.Parent.MouseButton1Click:connect(function()
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(script.Parent.Parent:FindFirstChild("speed_textbox").Text)
 	end)
 end
-coroutine.wrap(CKZUG_fake_script)()
-local function VITWPU_fake_script() -- get_coins.LocalScript 
+coroutine.wrap(AFOTNN_fake_script)()
+local function CBUYS_fake_script() -- get_coins.LocalScript 
 	local script = Instance.new('LocalScript', get_coins)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -258,7 +305,12 @@ local function VITWPU_fake_script() -- get_coins.LocalScript
 			map = workspace:FindFirstChild("Hotel")
 		end
 		print("Found map: ", map.Name)
-		map:FindFirstChild("GlitchProof"):Destroy()
+		if map ~= nil then
+			if map:FindFirstChild("GlitchProof") ~= nil then
+				print("Found map: ", map.Name)
+				map:FindFirstChild("GlitchProof"):Destroy()
+			end
+		end
 		local coins_model = map:FindFirstChild("CoinContainer")
 		while true do
 			if workspace:FindFirstChild(map.Name) == nil then
@@ -275,20 +327,20 @@ local function VITWPU_fake_script() -- get_coins.LocalScript
 		end
 	end)
 end
-coroutine.wrap(VITWPU_fake_script)()
-local function ZUVZTL_fake_script() -- open.LocalScript 
+coroutine.wrap(CBUYS_fake_script)()
+local function JNRKL_fake_script() -- open.LocalScript 
 	local script = Instance.new('LocalScript', open)
 
 	script.Parent.MouseButton1Click:connect(function()
 		script.Parent.Parent.Parent:FindFirstChild("main").Visible = true
 	end)
 end
-coroutine.wrap(ZUVZTL_fake_script)()
-local function GLWNZAL_fake_script() -- close.LocalScript 
+coroutine.wrap(JNRKL_fake_script)()
+local function THRYWL_fake_script() -- close.LocalScript 
 	local script = Instance.new('LocalScript', close)
 
 	script.Parent.MouseButton1Click:connect(function()
 		script.Parent.Parent.Parent:FindFirstChild("main").Visible = false
 	end)
 end
-coroutine.wrap(GLWNZAL_fake_script)()
+coroutine.wrap(THRYWL_fake_script)()
