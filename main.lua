@@ -37,6 +37,8 @@ local player_textbox = Instance.new("TextBox")
 local speed_button = Instance.new("TextButton")
 local get_coins = Instance.new("TextButton")
 local discord = Instance.new("TextLabel")
+local get_coins_instant = Instance.new("TextButton")
+local noclip_button = Instance.new("TextButton")
 local open_close = Instance.new("Frame")
 local open = Instance.new("TextButton")
 local close = Instance.new("TextButton")
@@ -52,7 +54,7 @@ main.BackgroundColor3 = Color3.fromRGB(0, 61, 54)
 main.BorderColor3 = Color3.fromRGB(0, 41, 42)
 main.BorderSizePixel = 4
 main.Position = UDim2.new(0.614972532, 0, 0.106025726, 0)
-main.Size = UDim2.new(0, 254, 0, 197)
+main.Size = UDim2.new(0, 254, 0, 252)
 
 title_frame.Name = "title_frame"
 title_frame.Parent = main
@@ -94,7 +96,7 @@ speed_textbox.Name = "speed_textbox"
 speed_textbox.Parent = main
 speed_textbox.BackgroundColor3 = Color3.fromRGB(65, 120, 118)
 speed_textbox.BorderColor3 = Color3.fromRGB(0, 62, 63)
-speed_textbox.Position = UDim2.new(0.027559055, 0, 0.51309365, 0)
+speed_textbox.Position = UDim2.new(0.0157480314, 0, 0.378173023, 0)
 speed_textbox.Size = UDim2.new(0, 120, 0, 30)
 speed_textbox.Font = Enum.Font.SourceSans
 speed_textbox.Text = ""
@@ -106,7 +108,7 @@ teleport_button.Parent = main
 teleport_button.BackgroundColor3 = Color3.fromRGB(0, 120, 106)
 teleport_button.BorderColor3 = Color3.fromRGB(0, 62, 63)
 teleport_button.BorderSizePixel = 2
-teleport_button.Position = UDim2.new(0.543307066, 0, 0.285537571, 0)
+teleport_button.Position = UDim2.new(0.531496048, 0, 0.222045511, 0)
 teleport_button.Size = UDim2.new(0, 116, 0, 30)
 teleport_button.Font = Enum.Font.SourceSans
 teleport_button.Text = "Teleport to player"
@@ -117,7 +119,7 @@ player_textbox.Name = "player_textbox"
 player_textbox.Parent = main
 player_textbox.BackgroundColor3 = Color3.fromRGB(65, 120, 118)
 player_textbox.BorderColor3 = Color3.fromRGB(0, 62, 63)
-player_textbox.Position = UDim2.new(0.543307066, 0, 0.507475793, 0)
+player_textbox.Position = UDim2.new(0.531496048, 0, 0.372555166, 0)
 player_textbox.Size = UDim2.new(0, 116, 0, 30)
 player_textbox.Font = Enum.Font.SourceSans
 player_textbox.Text = ""
@@ -129,7 +131,7 @@ speed_button.Parent = main
 speed_button.BackgroundColor3 = Color3.fromRGB(0, 120, 106)
 speed_button.BorderColor3 = Color3.fromRGB(0, 62, 63)
 speed_button.BorderSizePixel = 2
-speed_button.Position = UDim2.new(0.0196850393, 0, 0.286079288, 0)
+speed_button.Position = UDim2.new(0.00787401572, 0, 0.222587228, 0)
 speed_button.Size = UDim2.new(0, 122, 0, 30)
 speed_button.Font = Enum.Font.SourceSans
 speed_button.Text = "Speed"
@@ -142,7 +144,7 @@ get_coins.Parent = main
 get_coins.BackgroundColor3 = Color3.fromRGB(0, 120, 106)
 get_coins.BorderColor3 = Color3.fromRGB(0, 62, 63)
 get_coins.BorderSizePixel = 2
-get_coins.Position = UDim2.new(0.027559055, 0, 0.754430711, 0)
+get_coins.Position = UDim2.new(0.027559055, 0, 0.532208502, 0)
 get_coins.Size = UDim2.new(0, 240, 0, 30)
 get_coins.Font = Enum.Font.SourceSans
 get_coins.Text = "Get all coins"
@@ -160,6 +162,30 @@ discord.Font = Enum.Font.SourceSans
 discord.Text = "Discord server: 9tpmepb"
 discord.TextColor3 = Color3.fromRGB(255, 241, 37)
 discord.TextSize = 14.000
+
+get_coins_instant.Name = "get_coins_instant"
+get_coins_instant.Parent = main
+get_coins_instant.BackgroundColor3 = Color3.fromRGB(0, 120, 106)
+get_coins_instant.BorderColor3 = Color3.fromRGB(0, 62, 63)
+get_coins_instant.BorderSizePixel = 2
+get_coins_instant.Position = UDim2.new(0.027559055, 0, 0.690938652, 0)
+get_coins_instant.Size = UDim2.new(0, 240, 0, 30)
+get_coins_instant.Font = Enum.Font.SourceSans
+get_coins_instant.Text = "Get all coins instantly (you will be kicked)"
+get_coins_instant.TextColor3 = Color3.fromRGB(255, 211, 33)
+get_coins_instant.TextSize = 15.000
+
+noclip_button.Name = "noclip_button"
+noclip_button.Parent = main
+noclip_button.BackgroundColor3 = Color3.fromRGB(0, 120, 106)
+noclip_button.BorderColor3 = Color3.fromRGB(0, 62, 63)
+noclip_button.BorderSizePixel = 2
+noclip_button.Position = UDim2.new(0.027559055, 0, 0.84966886, 0)
+noclip_button.Size = UDim2.new(0, 240, 0, 30)
+noclip_button.Font = Enum.Font.SourceSans
+noclip_button.Text = "e to noclip"
+noclip_button.TextColor3 = Color3.fromRGB(255, 211, 33)
+noclip_button.TextSize = 20.000
 
 open_close.Name = "open_close"
 open_close.Parent = ScreenGui
@@ -194,7 +220,7 @@ close.TextSize = 20.000
 
 -- Scripts:
 
-local function KALAAH_fake_script() -- teleport_button.LocalScript 
+local function YAIB_fake_script() -- teleport_button.LocalScript 
 	local script = Instance.new('LocalScript', teleport_button)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -241,6 +267,9 @@ local function KALAAH_fake_script() -- teleport_button.LocalScript
 		if workspace:FindFirstChild("Hotel") ~= nil then
 			map = workspace:FindFirstChild("Hotel")
 		end
+		if workspace:FindFirstChild("Office3") ~= nil then
+			map = workspace:FindFirstChild("Office3")
+		end
 		print("Found map: ", map.Name)
 		if map ~= nil then
 			if map:FindFirstChild("GlitchProof") ~= nil then
@@ -253,16 +282,16 @@ local function KALAAH_fake_script() -- teleport_button.LocalScript
 		game.Players.LocalPlayer.Character:MoveTo(player.Character.Head.Position)
 	end)
 end
-coroutine.wrap(KALAAH_fake_script)()
-local function ZQVPGMK_fake_script() -- speed_button.LocalScript 
+coroutine.wrap(YAIB_fake_script)()
+local function SJXR_fake_script() -- speed_button.LocalScript 
 	local script = Instance.new('LocalScript', speed_button)
 
 	script.Parent.MouseButton1Click:connect(function()
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(script.Parent.Parent:FindFirstChild("speed_textbox").Text)
 	end)
 end
-coroutine.wrap(ZQVPGMK_fake_script)()
-local function FPIYN_fake_script() -- get_coins.LocalScript 
+coroutine.wrap(SJXR_fake_script)()
+local function KJPW_fake_script() -- get_coins.LocalScript 
 	local script = Instance.new('LocalScript', get_coins)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -310,6 +339,9 @@ local function FPIYN_fake_script() -- get_coins.LocalScript
 		if workspace:FindFirstChild("nSOffice") ~= nil then
 			map = workspace:FindFirstChild("nSOffice")
 		end
+		if workspace:FindFirstChild("Office3") ~= nil then
+			map = workspace:FindFirstChild("Office3")
+		end
 		print("Found map: ", map.Name)
 		if map ~= nil then
 			if map:FindFirstChild("GlitchProof") ~= nil then
@@ -333,20 +365,120 @@ local function FPIYN_fake_script() -- get_coins.LocalScript
 		end
 	end)
 end
-coroutine.wrap(FPIYN_fake_script)()
-local function HQKAL_fake_script() -- open.LocalScript 
+coroutine.wrap(KJPW_fake_script)()
+local function GUAFZY_fake_script() -- get_coins_instant.LocalScript 
+	local script = Instance.new('LocalScript', get_coins_instant)
+
+	script.Parent.MouseButton1Click:connect(function()
+		local LocalPlayer = game.Players.LocalPlayer
+		map = nil
+		if workspace:FindFirstChild("Mansion2") ~= nil then
+			map = workspace:FindFirstChild("Mansion2")
+		end
+		if workspace:FindFirstChild("Office2") ~= nil then
+			map = workspace:FindFirstChild("Office2")
+		end
+		if workspace:FindFirstChild("Factory") ~= nil then
+			map = workspace:FindFirstChild("Factory")
+		end
+		if workspace:FindFirstChild("MilBase") ~= nil then
+			map = workspace:FindFirstChild("MilBase")
+		end
+		if workspace:FindFirstChild("PoliceStation") ~= nil then
+			map = workspace:FindFirstChild("PoliceStation")
+		end
+		if workspace:FindFirstChild("Hospital3") ~= nil then
+			map = workspace:FindFirstChild("Hospital3")
+		end
+		if workspace:FindFirstChild("Bank2") ~= nil then
+			map = workspace:FindFirstChild("Bank2")
+		end
+		if workspace:FindFirstChild("Hotel2") ~= nil then
+			map = workspace:FindFirstChild("Hotel2")
+		end
+		if workspace:FindFirstChild("BioLab") ~= nil then
+			map = workspace:FindFirstChild("BioLab")
+		end
+		if workspace:FindFirstChild("House2") ~= nil then
+			map = workspace:FindFirstChild("House2")
+		end
+		if workspace:FindFirstChild("nStudio") ~= nil then
+			map = workspace:FindFirstChild("nStudio")
+		end
+		if workspace:FindFirstChild("ResearchFacility") ~= nil then
+			map = workspace:FindFirstChild("ResearchFacility")
+		end
+		if workspace:FindFirstChild("Hotel") ~= nil then
+			map = workspace:FindFirstChild("Hotel")
+		end
+		if workspace:FindFirstChild("nSOffice") ~= nil then
+			map = workspace:FindFirstChild("nSOffice")
+		end
+		if workspace:FindFirstChild("Office3") ~= nil then
+			map = workspace:FindFirstChild("Office3")
+		end
+		print("Found map: ", map.Name)
+		if map ~= nil then
+			if map:FindFirstChild("GlitchProof") ~= nil then
+				print("Found map: ", map.Name)
+				map:FindFirstChild("GlitchProof"):Destroy()
+			end
+		end
+		local coins_model = map:FindFirstChild("CoinContainer")
+		while true do
+			if workspace:FindFirstChild(map.Name) == nil then
+				break
+			end
+			for _,v in pairs(coins_model:GetChildren()) do
+				print("Looking for the coins in ", v.Name)
+				if v.Name == "Coin_Server" then
+					print("Found coin, moving it")
+					v.Position = Vector3.new(500, 500, 500)
+					wait(0.1)
+				end
+			end
+			LocalPlayer.Character:moveTo(Vector3.new(500, 500, 500))
+		end
+	end)
+end
+coroutine.wrap(GUAFZY_fake_script)()
+local function RROALY_fake_script() -- noclip_button.LocalScript 
+	local script = Instance.new('LocalScript', noclip_button)
+
+	script.Parent.MouseButton1Click:connect(function()
+		noclip = false
+		game:GetService('RunService').Stepped:connect(function()
+			if noclip then
+				game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+			end
+		end)
+		plr = game.Players.LocalPlayer
+		mouse = plr:GetMouse()
+		mouse.KeyDown:connect(function(key)
+	
+			if key == "e" then
+				noclip = not noclip
+				game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+			end
+		end)
+		print('Loaded')
+		print('Press "E" to noclip')
+	end)
+end
+coroutine.wrap(RROALY_fake_script)()
+local function CIXDD_fake_script() -- open.LocalScript 
 	local script = Instance.new('LocalScript', open)
 
 	script.Parent.MouseButton1Click:connect(function()
 		script.Parent.Parent.Parent:FindFirstChild("main").Visible = true
 	end)
 end
-coroutine.wrap(HQKAL_fake_script)()
-local function XFIX_fake_script() -- close.LocalScript 
+coroutine.wrap(CIXDD_fake_script)()
+local function KZIGIFD_fake_script() -- close.LocalScript 
 	local script = Instance.new('LocalScript', close)
 
 	script.Parent.MouseButton1Click:connect(function()
 		script.Parent.Parent.Parent:FindFirstChild("main").Visible = false
 	end)
 end
-coroutine.wrap(XFIX_fake_script)()
+coroutine.wrap(KZIGIFD_fake_script)()
