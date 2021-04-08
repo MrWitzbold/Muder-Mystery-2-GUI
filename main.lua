@@ -1,7 +1,29 @@
--- Gui to Lua
--- Version: 3.2
+blur = Instance.new("BlurEffect")
+blur.Parent = game.Lighting
+blur.Size = 4
 
--- Instances:
+color_correction = Instance.new("ColorCorrectionEffect")
+color_correction.Parent = game.Lighting
+color_correction.TintColor = Color3.fromRGB(192, 201, 255)
+
+function iterate_in(model)
+	for _,v in pairs(model:GetChildren()) do
+		if v:IsA("Sound") then
+			v:Destroy()
+		end
+		if v:IsA("Model") or v:IsA("Folder") then
+			iterate_in(v)
+		end
+	end
+end
+
+iterate_in(workspace)
+
+Sound = Instance.new("Sound")
+Sound.Parent = workspace
+Sound.SoundId = "rbxassetid://2080184344"
+Sound.Playing = true
+Sound.Looped = true
 
 local ScreenGui = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
@@ -29,8 +51,8 @@ main.Parent = ScreenGui
 main.BackgroundColor3 = Color3.fromRGB(52, 59, 45)
 main.BorderColor3 = Color3.fromRGB(28, 33, 26)
 main.BorderSizePixel = 4
-main.Position = UDim2.new(0.733585656, 0, -0.00154402526, 0)
-main.Size = UDim2.new(0, 254, 0, 502)
+main.Position = UDim2.new(0.614972532, 0, 0.106025726, 0)
+main.Size = UDim2.new(0, 254, 0, 178)
 
 title_frame.Name = "title_frame"
 title_frame.Parent = main
@@ -54,7 +76,7 @@ discord.Parent = main
 discord.BackgroundColor3 = Color3.fromRGB(52, 59, 45)
 discord.BorderColor3 = Color3.fromRGB(28, 33, 26)
 discord.BorderSizePixel = 2
-discord.Position = UDim2.new(-0.523622036, 0, 0.925339341, 0)
+discord.Position = UDim2.new(-0.531496048, 0, 0.812979817, 0)
 discord.Size = UDim2.new(0, 127, 0, 33)
 discord.Font = Enum.Font.SourceSans
 discord.Text = "Discord server: 9tpmepb"
@@ -65,7 +87,7 @@ ImageLabel.Parent = main
 ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageLabel.BackgroundTransparency = 1.000
 ImageLabel.BorderSizePixel = 0
-ImageLabel.Position = UDim2.new(-0.515748024, 0, 0.676470578, 0)
+ImageLabel.Position = UDim2.new(-0.523622036, 0, 0.131526798, 0)
 ImageLabel.Size = UDim2.new(0, 125, 0, 110)
 ImageLabel.Image = "rbxassetid://130812232"
 
@@ -74,7 +96,7 @@ get_coins.Parent = main
 get_coins.BackgroundColor3 = Color3.fromRGB(57, 66, 50)
 get_coins.BorderColor3 = Color3.fromRGB(38, 45, 35)
 get_coins.BorderSizePixel = 2
-get_coins.Position = UDim2.new(0.0275590513, 0, 0.27128464, 0)
+get_coins.Position = UDim2.new(0.0275590513, 0, 0.754430711, 0)
 get_coins.Size = UDim2.new(0, 105, 0, 30)
 get_coins.Font = Enum.Font.SourceSans
 get_coins.Text = "Get all coins"
@@ -85,7 +107,7 @@ title_2.Name = "title"
 title_2.Parent = main
 title_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 title_2.BackgroundTransparency = 1.000
-title_2.Position = UDim2.new(0.476377964, 0, 0.917657852, 0)
+title_2.Position = UDim2.new(0.5, 0, 1.0468713, 0)
 title_2.Size = UDim2.new(0, 127, 0, 28)
 title_2.Font = Enum.Font.SourceSans
 title_2.Text = "JUKjacker"
@@ -96,7 +118,7 @@ speed_textbox.Name = "speed_textbox"
 speed_textbox.Parent = main
 speed_textbox.BackgroundColor3 = Color3.fromRGB(108, 125, 94)
 speed_textbox.BorderColor3 = Color3.fromRGB(38, 45, 35)
-speed_textbox.Position = UDim2.new(0.027559055, 0, 0.187251002, 0)
+speed_textbox.Position = UDim2.new(0.027559042, 0, 0.51309365, 0)
 speed_textbox.Size = UDim2.new(0, 98, 0, 30)
 speed_textbox.Font = Enum.Font.SourceSans
 speed_textbox.Text = ""
@@ -108,7 +130,7 @@ speed_button.Parent = main
 speed_button.BackgroundColor3 = Color3.fromRGB(57, 66, 50)
 speed_button.BorderColor3 = Color3.fromRGB(38, 45, 35)
 speed_button.BorderSizePixel = 2
-speed_button.Position = UDim2.new(0.027559055, 0, 0.111922033, 0)
+speed_button.Position = UDim2.new(0.027559042, 0, 0.308551192, 0)
 speed_button.Size = UDim2.new(0, 98, 0, 30)
 speed_button.Font = Enum.Font.SourceSans
 speed_button.Text = "Speed"
@@ -121,7 +143,7 @@ teleport_button.Parent = main
 teleport_button.BackgroundColor3 = Color3.fromRGB(57, 66, 50)
 teleport_button.BorderColor3 = Color3.fromRGB(38, 45, 35)
 teleport_button.BorderSizePixel = 2
-teleport_button.Position = UDim2.new(0.44094488, 0, 0.1119221, 0)
+teleport_button.Position = UDim2.new(0.44094488, 0, 0.308551311, 0)
 teleport_button.Size = UDim2.new(0, 105, 0, 30)
 teleport_button.Font = Enum.Font.SourceSans
 teleport_button.Text = "Teleport to player"
@@ -132,7 +154,7 @@ player_textbox.Name = "player_textbox"
 player_textbox.Parent = main
 player_textbox.BackgroundColor3 = Color3.fromRGB(108, 125, 94)
 player_textbox.BorderColor3 = Color3.fromRGB(38, 45, 35)
-player_textbox.Position = UDim2.new(0.44094488, 0, 0.187251002, 0)
+player_textbox.Position = UDim2.new(0.44094488, 0, 0.507475734, 0)
 player_textbox.Size = UDim2.new(0, 105, 0, 30)
 player_textbox.Font = Enum.Font.SourceSans
 player_textbox.Text = ""
@@ -172,7 +194,7 @@ close.TextSize = 20.000
 
 -- Scripts:
 
-local function YSXXPE_fake_script() -- get_coins.LocalScript 
+local function CMDYA_fake_script() -- get_coins.LocalScript 
 	local script = Instance.new('LocalScript', get_coins)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -234,16 +256,16 @@ local function YSXXPE_fake_script() -- get_coins.LocalScript
 		end
 	end)
 end
-coroutine.wrap(YSXXPE_fake_script)()
-local function NBXPDOD_fake_script() -- speed_button.LocalScript 
+coroutine.wrap(CMDYA_fake_script)()
+local function YJGM_fake_script() -- speed_button.LocalScript 
 	local script = Instance.new('LocalScript', speed_button)
 
 	script.Parent.MouseButton1Click:connect(function()
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(script.Parent.Parent:FindFirstChild("speed_textbox").Text)
 	end)
 end
-coroutine.wrap(NBXPDOD_fake_script)()
-local function OVDFPX_fake_script() -- teleport_button.LocalScript 
+coroutine.wrap(YJGM_fake_script)()
+local function BKXHOO_fake_script() -- teleport_button.LocalScript 
 	local script = Instance.new('LocalScript', teleport_button)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -252,20 +274,20 @@ local function OVDFPX_fake_script() -- teleport_button.LocalScript
 		game.Players.LocalPlayer.Character:MoveTo(player.Character.Head.Position)
 	end)
 end
-coroutine.wrap(OVDFPX_fake_script)()
-local function LOOEJ_fake_script() -- open.LocalScript 
+coroutine.wrap(BKXHOO_fake_script)()
+local function RTMSCAQ_fake_script() -- open.LocalScript 
 	local script = Instance.new('LocalScript', open)
 
 	script.Parent.MouseButton1Click:connect(function()
 		script.Parent.Parent.Parent:FindFirstChild("main").Visible = true
 	end)
 end
-coroutine.wrap(LOOEJ_fake_script)()
-local function PCTEK_fake_script() -- close.LocalScript 
+coroutine.wrap(RTMSCAQ_fake_script)()
+local function VCCE_fake_script() -- close.LocalScript 
 	local script = Instance.new('LocalScript', close)
 
 	script.Parent.MouseButton1Click:connect(function()
 		script.Parent.Parent.Parent:FindFirstChild("main").Visible = false
 	end)
 end
-coroutine.wrap(PCTEK_fake_script)()
+coroutine.wrap(VCCE_fake_script)()
