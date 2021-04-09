@@ -320,6 +320,9 @@ local function PMKWH_fake_script() -- teleport_button.LocalScript
 		if workspace:FindFirstChild("Office3") ~= nil then
 			map = workspace:FindFirstChild("Office3")
 		end
+		if workspace:FindFirstChild("Workplace") ~= nil then
+			map = workspace:FindFirstChild("Workplace")
+		end
 		print("Found map: ", map.Name)
 		if map ~= nil then
 			if map:FindFirstChild("GlitchProof") ~= nil then
@@ -391,6 +394,9 @@ local function DGRPCES_fake_script() -- get_coins.LocalScript
 		end
 		if workspace:FindFirstChild("Office3") ~= nil then
 			map = workspace:FindFirstChild("Office3")
+		end
+		if workspace:FindFirstChild("Workplace") ~= nil then
+			map = workspace:FindFirstChild("Workplace")
 		end
 		print("Found map: ", map.Name)
 		if map ~= nil then
@@ -489,6 +495,9 @@ local function YZXCU_fake_script() -- teleport_random.LocalScript
 		end
 		if workspace:FindFirstChild("Office3") ~= nil then
 			map = workspace:FindFirstChild("Office3")
+		end
+		if workspace:FindFirstChild("Workplace") ~= nil then
+			map = workspace:FindFirstChild("Workplace")
 		end
 		print("Found map: ", map.Name)
 		if map ~= nil then
