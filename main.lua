@@ -1,10 +1,20 @@
-blur = Instance.new("BlurEffect")
-blur.Parent = game.Lighting
-blur.Size = 4
+already_ran = false
 
-color_correction = Instance.new("ColorCorrectionEffect")
-color_correction.Parent = game.Lighting
-color_correction.TintColor = Color3.fromRGB(192, 201, 255)
+for _,v in pairs(game.Lighting:GetChildren()) do
+	if v.Name == "hatsublue" then
+		already_ran = true
+	end
+end
+if already_ran == false then
+	blur = Instance.new("BlurEffect")
+	blur.Parent = game.Lighting
+	blur.Size = 4
+
+	color_correction = Instance.new("ColorCorrectionEffect")
+	color_correction.Parent = game.Lighting
+	color_correction.TintColor = Color3.fromRGB(192, 201, 255)
+	color_correction.Name = "hatsublue"
+end
 
 function iterate_in(model)
 	for _,v in pairs(model:GetChildren()) do
@@ -43,6 +53,7 @@ local teleport_random = Instance.new("TextButton")
 local tele_random_textbox = Instance.new("TextBox")
 local xray_button = Instance.new("TextButton")
 local btools = Instance.new("TextButton")
+local xray_textbox = Instance.new("TextBox")
 local open_close = Instance.new("Frame")
 local open = Instance.new("TextButton")
 local close = Instance.new("TextButton")
@@ -57,8 +68,8 @@ main.Parent = ScreenGui
 main.BackgroundColor3 = Color3.fromRGB(0, 61, 54)
 main.BorderColor3 = Color3.fromRGB(0, 41, 42)
 main.BorderSizePixel = 4
-main.Position = UDim2.new(0.614972472, 0, 0.106025726, 0)
-main.Size = UDim2.new(0, 254, 0, 348)
+main.Position = UDim2.new(0.614972532, 0, 0.106025726, 0)
+main.Size = UDim2.new(0, 254, 0, 337)
 
 title_frame.Name = "title_frame"
 title_frame.Parent = main
@@ -89,7 +100,7 @@ title_2.Name = "title"
 title_2.Parent = main
 title_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 title_2.BackgroundTransparency = 1.000
-title_2.Position = UDim2.new(0.48031497, 0, 1.02100921, 0)
+title_2.Position = UDim2.new(0.5, 0, 1.0468713, 0)
 title_2.Size = UDim2.new(0, 127, 0, 28)
 title_2.Font = Enum.Font.SourceSans
 title_2.Text = "JUKjacker"
@@ -219,23 +230,34 @@ xray_button.BackgroundColor3 = Color3.fromRGB(0, 120, 106)
 xray_button.BorderColor3 = Color3.fromRGB(0, 62, 63)
 xray_button.BorderSizePixel = 2
 xray_button.Position = UDim2.new(0.0157480314, 0, 0.722434103, 0)
-xray_button.Size = UDim2.new(0, 245, 0, 30)
+xray_button.Size = UDim2.new(0, 198, 0, 30)
 xray_button.Font = Enum.Font.SourceSans
-xray_button.Text = "XRAY"
+xray_button.Text = "XRAY (set transparency)"
 xray_button.TextColor3 = Color3.fromRGB(255, 211, 33)
-xray_button.TextSize = 25.000
+xray_button.TextSize = 22.000
 
 btools.Name = "btools"
 btools.Parent = main
 btools.BackgroundColor3 = Color3.fromRGB(0, 120, 106)
 btools.BorderColor3 = Color3.fromRGB(0, 62, 63)
 btools.BorderSizePixel = 2
-btools.Position = UDim2.new(0.0157480314, 0, 0.828755915, 0)
+btools.Position = UDim2.new(0.0157480314, 0, 0.841128469, 0)
 btools.Size = UDim2.new(0, 245, 0, 30)
 btools.Font = Enum.Font.SourceSans
 btools.Text = "Btools"
 btools.TextColor3 = Color3.fromRGB(255, 211, 33)
 btools.TextSize = 25.000
+
+xray_textbox.Name = "xray_textbox"
+xray_textbox.Parent = main
+xray_textbox.BackgroundColor3 = Color3.fromRGB(65, 120, 118)
+xray_textbox.BorderColor3 = Color3.fromRGB(0, 62, 63)
+xray_textbox.Position = UDim2.new(0.826211512, 0, 0.722150147, 0)
+xray_textbox.Size = UDim2.new(0, 40, 0, 30)
+xray_textbox.Font = Enum.Font.SourceSans
+xray_textbox.Text = ""
+xray_textbox.TextColor3 = Color3.fromRGB(255, 211, 33)
+xray_textbox.TextSize = 14.000
 
 open_close.Name = "open_close"
 open_close.Parent = ScreenGui
@@ -270,7 +292,7 @@ close.TextSize = 20.000
 
 -- Scripts:
 
-local function PMKWH_fake_script() -- teleport_button.LocalScript 
+local function IRYU_fake_script() -- teleport_button.LocalScript 
 	local script = Instance.new('LocalScript', teleport_button)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -320,9 +342,6 @@ local function PMKWH_fake_script() -- teleport_button.LocalScript
 		if workspace:FindFirstChild("Office3") ~= nil then
 			map = workspace:FindFirstChild("Office3")
 		end
-		if workspace:FindFirstChild("Workplace") ~= nil then
-			map = workspace:FindFirstChild("Workplace")
-		end
 		print("Found map: ", map.Name)
 		if map ~= nil then
 			if map:FindFirstChild("GlitchProof") ~= nil then
@@ -335,16 +354,16 @@ local function PMKWH_fake_script() -- teleport_button.LocalScript
 		game.Players.LocalPlayer.Character:MoveTo(player.Character.Head.Position)
 	end)
 end
-coroutine.wrap(PMKWH_fake_script)()
-local function EFMZ_fake_script() -- speed_button.LocalScript 
+coroutine.wrap(IRYU_fake_script)()
+local function NIXJHS_fake_script() -- speed_button.LocalScript 
 	local script = Instance.new('LocalScript', speed_button)
 
 	script.Parent.MouseButton1Click:connect(function()
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(script.Parent.Parent:FindFirstChild("speed_textbox").Text)
 	end)
 end
-coroutine.wrap(EFMZ_fake_script)()
-local function DGRPCES_fake_script() -- get_coins.LocalScript 
+coroutine.wrap(NIXJHS_fake_script)()
+local function YVTH_fake_script() -- get_coins.LocalScript 
 	local script = Instance.new('LocalScript', get_coins)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -395,9 +414,6 @@ local function DGRPCES_fake_script() -- get_coins.LocalScript
 		if workspace:FindFirstChild("Office3") ~= nil then
 			map = workspace:FindFirstChild("Office3")
 		end
-		if workspace:FindFirstChild("Workplace") ~= nil then
-			map = workspace:FindFirstChild("Workplace")
-		end
 		print("Found map: ", map.Name)
 		if map ~= nil then
 			if map:FindFirstChild("GlitchProof") ~= nil then
@@ -421,8 +437,8 @@ local function DGRPCES_fake_script() -- get_coins.LocalScript
 		end
 	end)
 end
-coroutine.wrap(DGRPCES_fake_script)()
-local function YEJJYLP_fake_script() -- noclip_button.LocalScript 
+coroutine.wrap(YVTH_fake_script)()
+local function EMGEC_fake_script() -- noclip_button.LocalScript 
 	local script = Instance.new('LocalScript', noclip_button)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -445,8 +461,8 @@ local function YEJJYLP_fake_script() -- noclip_button.LocalScript
 		print('Press "E" to noclip')
 	end)
 end
-coroutine.wrap(YEJJYLP_fake_script)()
-local function YZXCU_fake_script() -- teleport_random.LocalScript 
+coroutine.wrap(EMGEC_fake_script)()
+local function YEZIK_fake_script() -- teleport_random.LocalScript 
 	local script = Instance.new('LocalScript', teleport_random)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -496,9 +512,6 @@ local function YZXCU_fake_script() -- teleport_random.LocalScript
 		if workspace:FindFirstChild("Office3") ~= nil then
 			map = workspace:FindFirstChild("Office3")
 		end
-		if workspace:FindFirstChild("Workplace") ~= nil then
-			map = workspace:FindFirstChild("Workplace")
-		end
 		print("Found map: ", map.Name)
 		if map ~= nil then
 			if map:FindFirstChild("GlitchProof") ~= nil then
@@ -514,15 +527,16 @@ local function YZXCU_fake_script() -- teleport_random.LocalScript
 		end
 	end)
 end
-coroutine.wrap(YZXCU_fake_script)()
-local function LDBZR_fake_script() -- xray_button.LocalScript 
+coroutine.wrap(YEZIK_fake_script)()
+local function DKZYWJY_fake_script() -- xray_button.LocalScript 
 	local script = Instance.new('LocalScript', xray_button)
 
 	script.Parent.MouseButton1Click:connect(function()
+		local transparency = tonumber(script.Parent.Parent.xray_textbox.Text)
 		local function iterate_in(model)
 			for _,v in pairs(model:GetChildren()) do
 				if v:IsA("Part") then
-					v.Transparency = 0.7
+					v.Transparency = transparency
 				end
 				if v:IsA("Folder") or v:IsA("Model") then
 					iterate_in(v)
@@ -532,30 +546,44 @@ local function LDBZR_fake_script() -- xray_button.LocalScript
 		iterate_in(workspace)
 	end)
 end
-coroutine.wrap(LDBZR_fake_script)()
-local function KBSOR_fake_script() -- btools.LocalScript 
+coroutine.wrap(DKZYWJY_fake_script)()
+local function NTPRI_fake_script() -- btools.LocalScript 
 	local script = Instance.new('LocalScript', btools)
 
 	script.Parent.MouseButton1Click:connect(function()
+		local function unlock_with_model(obj)
+			for i,v in pairs(obj:GetChildren()) do
+				if v:IsA("Part") then
+					v.Locked = false
+				end
+				if v:IsA("Model") then
+					unlock_with_model(v)
+				end
+				if v:IsA("Folder") then
+					unlock_with_model(v)
+				end
+			end
+		end
+		unlock_with_model(workspace)
 		Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 2
 		Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 3
 		Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 4
 	end)
 end
-coroutine.wrap(KBSOR_fake_script)()
-local function OTQGXD_fake_script() -- open.LocalScript 
+coroutine.wrap(NTPRI_fake_script)()
+local function BHJOHOH_fake_script() -- open.LocalScript 
 	local script = Instance.new('LocalScript', open)
 
 	script.Parent.MouseButton1Click:connect(function()
 		script.Parent.Parent.Parent:FindFirstChild("main").Visible = true
 	end)
 end
-coroutine.wrap(OTQGXD_fake_script)()
-local function NOZZ_fake_script() -- close.LocalScript 
+coroutine.wrap(BHJOHOH_fake_script)()
+local function XVXQMDU_fake_script() -- close.LocalScript 
 	local script = Instance.new('LocalScript', close)
 
 	script.Parent.MouseButton1Click:connect(function()
 		script.Parent.Parent.Parent:FindFirstChild("main").Visible = false
 	end)
 end
-coroutine.wrap(NOZZ_fake_script)()
+coroutine.wrap(XVXQMDU_fake_script)()
